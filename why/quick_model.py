@@ -14,6 +14,8 @@ class quick_model():
         self.sep = os.sep
         self.test_size = test_size
         self.silent = silent
+        if not os.path.exists("output")
+            os.mkdir("output") 
         self.__load__()
         self.__make_sets__()
 
