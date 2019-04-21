@@ -1,7 +1,0 @@
-digraph {
-	split0 [label="split_feature_name: Column_295\nthreshold: 0.15500000000000003"]
-	leaf0 [label="leaf_index: 0\nleaf_value: 0.5889496998408709"]
-	split0 -> leaf0 [label="<="]
-	leaf1 [label="leaf_index: 1\nleaf_value: 0.5104816372519585"]
-	split0 -> leaf1 [label=">"]
-}

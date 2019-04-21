@@ -10,9 +10,10 @@ import os
 
 class quick_model():
 
-    def __init__(self, test_size=.2):
+    def __init__(self, test_size=.2, silent=False):
         self.sep = os.sep
         self.test_size = test_size
+        self.silent = silent
         self.__load__()
         self.__make_sets__()
 
@@ -36,8 +37,8 @@ class quick_model():
         #
         # Create the LightGBM data containers
         #
-        self.train_data = lightgbm.Dataset(self.x, label=self.y)
-        self.test_data = lightgbm.Dataset(self.x_test, label=self.y_test)
+        self.train_data = lightgbm.Dataset(self.x, label=self.y, silent=self.silent)
+        self.test_data = lightgbm.Dataset(self.x_test, label=self.y_test, silent=self.silent)
 
     def __train__(self):
         #
