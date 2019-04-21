@@ -1,0 +1,15 @@
+digraph {
+	split0 [label="split_feature_name: Column_295\nthreshold: 0.15500000000000003"]
+	leaf0 [label="leaf_index: 0\nleaf_value: 0.5889496998408709"]
+	split0 -> leaf0 [label="<="]
+	split1 [label="split_feature_name: Column_215\nthreshold: 0.6115"]
+	split2 [label="split_feature_name: Column_33\nthreshold: 0.9375000000000001"]
+	leaf1 [label="leaf_index: 1\nleaf_value: 0.4681965387193076"]
+	split2 -> leaf1 [label="<="]
+	leaf3 [label="leaf_index: 3\nleaf_value: 0.6534891493499806"]
+	split2 -> leaf3 [label=">"]
+	split1 -> split2 [label="<="]
+	leaf2 [label="leaf_index: 2\nleaf_value: 0.6004781206156462"]
+	split1 -> leaf2 [label=">"]
+	split0 -> split1 [label=">"]
+}
