@@ -77,9 +77,16 @@ class DataWorker(object):
         print("Classified as zero: %d, %f\n Classified as one: %d, %f" % (zeros, zeros/total, ones, ones/total))
 
     def get_normalized_production_set(self):
-        """ Return a mean centered and variance normalized data training set """
-        new_training = preprocessing.scale(self.train)
-        new_tests = preprocessing.scale(self.test)
+        """ Performs Regularization
+
+        Returns a mean-centered and variance normalized set of features.
+
+        """
+
+        all_features = np.append(self.train, self.test, axis=0)
+        regularized = preprocessing.scale(all_features)
+        new_training = all_features[:self.n_train,:]
+        new_tests = all_features[self.n_train:,:]
 
         return new_training, self.target, new_tests
 
