@@ -75,7 +75,7 @@ class quick_model():
         auc = max(self.myoutput["valid_0"]["auc"])
         params = ",".join(self.model.model_to_string().split("parameters:\n")[1].split("\n\n")[0].split("\n"))
         with open("submission_list.csv", "a") as csv:
-            csv.write("{0},{1},{2}\n".format(time_label, auc, params))
+            csv.write("{0},{1},{2},{3}\n".format(time_label, auc, params,self.test_size))
 
         if self.save_graph:
             graph = lightgbm.create_tree_digraph(self.model)
