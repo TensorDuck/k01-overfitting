@@ -107,6 +107,22 @@ class DataWorker(object):
 
         return new_training_inputs, new_training_targets, new_test_inputs
 
+    def output_features(self, feature_list, suffix):
+        sub_features = self.train[:, feature_list]
+        sub_test_features = self.test[:, feature_list]
+
+        # construct pandas dictionary
+        train_dict = {"id": np.arange(self.n_train), "target": self.target}
+        test_dict = {"id": self.ids}
+        for idx in feature_list:
+            train_dict["%d" % idx] = self.train[:, idx]
+            test_dict["%d" % idx] = self.test[:, idx]
+
+        output = pd.DataFrame(train_dict)
+        output.to_csv("train_%s.csv" % suffix, index=False)
+        output = pd.DataFrame(test_dict)
+        output.to_csv("test_%s.csv" % suffix, index=False)
+
     def output_results(self, y_submit, savename="submission.csv"):
         """ Prepare submission file given results"""
 
