@@ -98,7 +98,7 @@ if __name__ == "__main__":
 
     collected_top_features = []
     collected_top_features_notrandom = []
-    for i in range(10):
+    for i in range(1000):
         if (i % 10) == 0:
             print("Analyzed %d trees" % i)
         tf, tfb = find_top_features(x,y)
